@@ -138,7 +138,7 @@
             background: white; 
             border-radius: 1rem; 
             padding: 2rem; 
-            max-width: 900px; 
+            max-width: 500px; 
             width: 100%; 
             max-height: 90vh; 
             overflow-y: auto;
@@ -213,228 +213,159 @@
             color: #374151;
         }
 
-        .masked-info {
-            background: #fef3c7;
-            border: 1px solid #f59e0b;
-            border-radius: 0.5rem;
-            padding: 0.75rem;
-            margin: 0.5rem 0;
-            position: relative;
-        }
-
-        .unlock-btn {
-            background: #f59e0b;
-            color: white;
-            border: none;
-            border-radius: 0.25rem;
-            padding: 0.25rem 0.5rem;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .unlock-btn:hover {
-            background: #d97706;
-        }
-
-        .contact-agent-btn {
-            background: #10b981;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 1rem 0;
-            width: 100%;
-        }
-
-        .contact-agent-btn:hover {
-            background: #059669;
-            transform: translateY(-1px);
-        }
-
-        .bed-selector {
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 0.5rem;
-            margin: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .bed-selector:hover {
-            border-color: #2563eb;
-            background: #eff6ff;
-        }
-
-        .bed-selector.occupied {
-            background: #fee2e2;
-            border-color: #ef4444;
-            cursor: not-allowed;
-        }
-
-        .bed-selector.selected {
-            background: #dbeafe;
-            border-color: #2563eb;
-        }
-
-        .virtual-room {
+        .checkbox-group {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
-            max-width: 300px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: #f8fafc;
-            border-radius: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
             border: 2px solid #e2e8f0;
-        }
-
-        .virtual-room.four-bed {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .image-upload-area {
-            border: 2px dashed #9ca3af;
-            border-radius: 0.75rem;
-            padding: 2rem;
-            text-align: center;
-            background: #f8fafc;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .image-upload-area:hover {
-            border-color: #2563eb;
-            background: #eff6ff;
-        }
-
-        .loading-spinner {
-            border: 2px solid #f3f4f6;
-            border-top: 2px solid #2563eb;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .toast {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: white;
-            border: 1px solid #e2e8f0;
             border-radius: 0.5rem;
-            padding: 1rem;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
-            z-index: 1001;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .toast.show {
-            transform: translateX(0);
+        .checkbox-item:hover {
+            border-color: #2563eb;
+            background-color: #eff6ff;
         }
 
-        .toast.success {
-            border-left: 4px solid #10b981;
+        .checkbox-item.selected {
+            border-color: #2563eb;
+            background-color: #eff6ff;
         }
 
-        .toast.error {
-            border-left: 4px solid #ef4444;
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
         }
 
-        .sign-in-btn {
-            background: #4285f4;
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background-color: white;
+        }
+
+        .radio-item:hover {
+            border-color: #2563eb;
+            background-color: #eff6ff;
+        }
+
+        .radio-item.selected {
+            border-color: #2563eb;
+            background-color: #2563eb;
+            color: white;
+        }
+
+        .floating-contacts {
+            position: fixed;
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            bottom: 140px;
+            right: 20px;
+        }
+
+        .floating-btn {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
             color: white;
             border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin: 0.5rem 0;
-            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .sign-in-btn:hover {
-            background: #3367d6;
+        .floating-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128c7e;
+        }
+
+        .email-btn {
+            background: #ea4335;
+        }
+
+        .email-btn:hover {
+            background: #d33b2c;
+        }
+
+        .btn-social {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 2px solid #e2e8f0;
+            background: white;
+            color: #374151;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .btn-social:hover {
+            border-color: #cbd5e1;
+            background: #f8fafc;
             transform: translateY(-1px);
         }
 
-        .sign-in-btn.twitter {
-            background: #1da1f2;
+        .btn-google:hover {
+            border-color: #dc2626;
+            background: #fef2f2;
         }
 
-        .sign-in-btn.twitter:hover {
-            background: #0d8bd9;
+        .btn-twitter:hover {
+            border-color: #2563eb;
+            background: #eff6ff;
         }
 
-        .footer {
-            background: #1f2937;
-            color: white;
-            padding: 3rem 0 1rem;
-            margin-top: 4rem;
-        }
-
-        .footer h3 {
-            color: white;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .footer a {
-            color: #d1d5db;
+        .forgot-password-link {
+            color: #2563eb;
             text-decoration: none;
+            font-size: 0.875rem;
             transition: color 0.3s ease;
         }
 
-        .footer a:hover {
-            color: white;
-        }
-
-        .footer-divider {
-            border-top: 1px solid #374151;
-            margin: 2rem 0 1rem;
-        }
-
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            background: #374151;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #d1d5db;
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            background: #2563eb;
-            color: white;
-            transform: translateY(-2px);
+        .forgot-password-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
         }
 
         .divider {
             position: relative;
             text-align: center;
-            margin: 24px 0;
+            margin: 1.5rem 0;
         }
 
         .divider::before {
@@ -449,12 +380,132 @@
 
         .divider span {
             background: white;
-            padding: 0 16px;
-            color: #64748b;
-            font-size: 14px;
+            padding: 0 1rem;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .footer-section h3 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #3b82f6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: #374151;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        .blur-address {
+            filter: blur(3px);
+            user-select: none;
+            position: relative;
+        }
+
+        .unlock-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(37, 99, 235, 0.1), rgba(29, 78, 216, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .detail-item {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        .detail-value {
+            color: #6b7280;
+            font-size: 0.875rem;
         }
     </style>
+
 </head>
+
 <body class="bg-gray-50">
     <!-- Header -->
     <header class="bg-white shadow-lg sticky top-0 z-40 backdrop-blur-md bg-white/95">
@@ -478,7 +529,7 @@
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-8">
                     <a href="#" class="nav-link font-medium text-gray-700 hover:text-blue-600 active" onclick="showPage('home')" data-page="home">Home</a>
-                    <a href="#" class="nav-link font-medium text-gray-700 hover:text-blue-600" onclick="showPage('sale')" data-page="sale">Sale Properties</a>
+                    <a href="#" class="nav-link font-medium text-gray-700 hover:text-blue-600" onclick="showPage('roommates')" data-page="roommates">Roommates</a>
                     <a href="#" class="nav-link font-medium text-gray-700 hover:text-blue-600" onclick="showPage('rentals')" data-page="rentals">Rentals</a>
                     <a href="#" class="nav-link font-medium text-gray-700 hover:text-blue-600" onclick="showPage('pg')" data-page="pg">PG Listings</a>
                     <a href="#" class="nav-link font-medium text-gray-700 hover:text-blue-600" onclick="showPage('list')" data-page="list">List Property</a>
@@ -495,7 +546,7 @@
             <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-200">
                 <div class="px-4 py-4 space-y-3">
                     <a href="#" class="block py-3 font-medium text-gray-700 hover:text-blue-600" onclick="showPage('home'); toggleMobileMenu()">Home</a>
-                    <a href="#" class="block py-3 font-medium text-gray-700 hover:text-blue-600" onclick="showPage('sale'); toggleMobileMenu()">Sale Properties</a>
+                    <a href="#" class="block py-3 font-medium text-gray-700 hover:text-blue-600" onclick="showPage('roommates'); toggleMobileMenu()">Roommates</a>
                     <a href="#" class="block py-3 font-medium text-gray-700 hover:text-blue-600" onclick="showPage('rentals'); toggleMobileMenu()">Rentals</a>
                     <a href="#" class="block py-3 font-medium text-gray-700 hover:text-blue-600" onclick="showPage('pg'); toggleMobileMenu()">PG Listings</a>
                     <a href="#" class="block py-3 font-medium text-gray-700 hover:text-blue-600" onclick="showPage('list'); toggleMobileMenu()">List Property</a>
@@ -517,178 +568,659 @@
                 <div class="relative rounded-2xl overflow-hidden mb-12">
                     <div class="hero-overlay absolute inset-0 z-10"></div>
                     <img 
-                        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&h=800" 
-                        alt="Modern city skyline with glass buildings" 
+                        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&h=800" 
+                        alt="Modern city skyline" 
                         class="w-full h-96 object-cover" 
                     />
                     
                     <div class="absolute inset-0 z-20 flex items-center justify-center text-center text-white">
                         <div class="max-w-4xl px-6">
-                            <h2 class="text-5xl md:text-6xl font-bold mb-6">Find Your Dream Property</h2>
+                            <h2 class="text-5xl md:text-6xl font-bold mb-6">Find Your Perfect Living Space</h2>
                             <p class="text-xl md:text-2xl mb-8 text-gray-100">
-                                Discover premium properties, PG accommodations, and rental spaces with transparent pricing
+                                Discover roommates, rental properties, and PG accommodations with transparent pricing
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                                <button onclick="showPage('sale')" class="btn-primary text-lg px-8 py-4">
-                                    <i class="fas fa-home mr-2"></i>
-                                    Browse Properties
+                                <button onclick="showPage('roommates')" class="btn-primary text-lg px-8 py-4">
+                                    <i class="fas fa-users mr-2"></i>
+                                    Find Roommates
                                 </button>
-                                <button onclick="showPage('pg')" class="btn-secondary text-lg px-8 py-4 bg-white/20 border-white/30 text-white hover:bg-white/30 hover:text-white">
-                                    <i class="fas fa-bed mr-2"></i>
-                                    Find PG
+                                <button onclick="showPage('rentals')" class="btn-secondary text-lg px-8 py-4 bg-white/20 border-white/30 text-white hover:bg-white/30 hover:text-white">
+                                    <i class="fas fa-home mr-2"></i>
+                                    Browse Rentals
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Featured Properties Section -->
-                <div class="mb-12">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">Featured Properties</h3>
-                    <div id="featuredProperties" class="grid md:grid-cols-3 gap-8">
-                        <!-- Featured properties will be loaded here -->
-                    </div>
-                </div>
-
-                <!-- Services Section -->
+                <!-- Features Section -->
                 <div class="grid md:grid-cols-3 gap-8 mb-12">
-                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="w-16 h-16 bluechip-gradient rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Find Roommates</h3>
+                        <p class="text-gray-600 leading-relaxed">Connect with compatible roommates based on lifestyle preferences, location, and budget requirements.</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
                         <div class="w-16 h-16 bluechip-gradient rounded-xl flex items-center justify-center mb-6">
                             <i class="fas fa-home text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-4">Property Sales</h3>
-                        <p class="text-gray-600">Find your perfect home with our curated selection of premium properties.</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Premium Rentals</h3>
+                        <p class="text-gray-600 leading-relaxed">Explore verified rental properties with detailed amenities, photos, and transparent pricing information.</p>
                     </div>
-                    
-                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                        <div class="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mb-6">
-                            <i class="fas fa-key text-white text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-4">Rental Properties</h3>
-                        <p class="text-gray-600">Flexible rental options for short-term and long-term stays.</p>
-                    </div>
-                    
-                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                        <div class="w-16 h-16 bg-purple-500 rounded-xl flex items-center justify-center mb-6">
+                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="w-16 h-16 bluechip-gradient rounded-xl flex items-center justify-center mb-6">
                             <i class="fas fa-bed text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-4">PG Accommodations</h3>
-                        <p class="text-gray-600">Comfortable paying guest accommodations with modern amenities.</p>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">PG Accommodations</h3>
+                        <p class="text-gray-600 leading-relaxed">Discover comfortable paying guest accommodations with modern amenities and flexible lease terms.</p>
+                    </div>
+                </div>
+
+                <!-- Sample Properties Section -->
+                <div class="mb-12">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">Featured Properties</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Sample Property 1 -->
+                        <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg">
+                            <img 
+                                src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                                alt="Modern 2BHK Apartment" 
+                                class="w-full h-48 object-cover" 
+                            />
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Luxury 2BHK Apartment</h4>
+                                <p class="text-gray-600 mb-4">Sec 15, Bandra West</p>
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-2xl font-bold text-blue-600">₹45,000/month</span>
+                                    <span class="text-sm text-gray-500">1,200 sq ft</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">2 BHK</span>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Furnished</span>
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">AC</span>
+                                    <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">WiFi</span>
+                                </div>
+                                <button class="btn-primary w-full" onclick="openPropertyDetails('luxury-2bhk')">
+                                    <i class="fas fa-eye mr-2"></i>
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Sample Property 2 -->
+                        <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg">
+                            <img 
+                                src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                                alt="Spacious 3BHK House" 
+                                class="w-full h-48 object-cover" 
+                            />
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Spacious 3BHK House</h4>
+                                <p class="text-gray-600 mb-4">Sec 7, Koramangala</p>
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-2xl font-bold text-blue-600">₹35,000/month</span>
+                                    <span class="text-sm text-gray-500">1,800 sq ft</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">3 BHK</span>
+                                    <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Semi-Furnished</span>
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Parking</span>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Garden</span>
+                                </div>
+                                <button class="btn-primary w-full" onclick="openPropertyDetails('spacious-3bhk')">
+                                    <i class="fas fa-eye mr-2"></i>
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Sample Property 3 -->
+                        <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg">
+                            <img 
+                                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                                alt="Premium PG Accommodation" 
+                                class="w-full h-48 object-cover" 
+                            />
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Premium PG for Professionals</h4>
+                                <p class="text-gray-600 mb-4">Sec 14, Gurgaon</p>
+                                <div class="flex justify-between items-center mb-4">
+                                    <span class="text-2xl font-bold text-blue-600">₹18,000/month</span>
+                                    <span class="text-sm text-gray-500">Single Room</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Single</span>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Fully Furnished</span>
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Meals</span>
+                                    <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">WiFi</span>
+                                </div>
+                                <button class="btn-primary w-full" onclick="openPropertyDetails('premium-pg')">
+                                    <i class="fas fa-eye mr-2"></i>
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Roommates Section -->
+                <div class="mb-12">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-8 text-center">Featured Roommate Profiles</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Sample Roommate 1 -->
+                        <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-2">
+                            <img 
+                                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                                alt="Roommate profile" 
+                                class="w-full h-48 object-cover" 
+                            />
+                            <div class="p-6">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Rahul Sharma</h4>
+                                <p class="text-gray-600 mb-4">Software Engineer</p>
+                                <div class="space-y-2 mb-4">
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                                        <span>Sec 15, Whitefield</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-rupee-sign mr-2 text-green-500"></i>
+                                        <span>₹20,000/month budget</span>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Non-Smoker</span>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Vegetarian</span>
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Clean</span>
+                                </div>
+                                <button class="btn-primary w-full" onclick="openRoommateDetails('rahul-sharma')">
+                                    <i class="fas fa-eye mr-2"></i>
+                                    View Profile
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Additional sample roommates can be added here -->
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Properties Page -->
-        <div id="sale" class="page-section">
+        <!-- Roommates Page -->
+        <div id="roommates" class="page-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <h2 class="text-3xl font-bold text-gray-900 mb-8">Properties for Sale</h2>
-                <div id="saleProperties" class="grid md:grid-cols-3 gap-8">
-                    <!-- Sale properties will be loaded here -->
+                <h2 class="text-4xl font-bold text-gray-900 mb-8 text-center">Find Your Perfect Roommate</h2>
+                <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                    Connect with like-minded individuals looking for shared accommodation. Filter by preferences, location, and budget.
+                </p>
+
+                <!-- Filters Section -->
+                <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Filter Roommates</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div>
+                            <label class="form-label">Location</label>
+                            <select class="form-input">
+                                <option>All Locations</option>
+                                <option>Bangalore</option>
+                                <option>Mumbai</option>
+                                <option>Delhi NCR</option>
+                                <option>Pune</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Budget Range</label>
+                            <select class="form-input">
+                                <option>Any Budget</option>
+                                <option>₹10,000 - ₹15,000</option>
+                                <option>₹15,000 - ₹25,000</option>
+                                <option>₹25,000 - ₹35,000</option>
+                                <option>₹35,000+</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Gender</label>
+                            <select class="form-input">
+                                <option>Any</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Profession</label>
+                            <select class="form-input">
+                                <option>Any Profession</option>
+                                <option>Software Engineer</option>
+                                <option>Student</option>
+                                <option>Doctor</option>
+                                <option>Teacher</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Roommate Cards -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Roommate Card 1 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-2">
+                        <img 
+                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                            alt="Roommate profile" 
+                            class="w-full h-48 object-cover" 
+                        />
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">Rahul Sharma</h4>
+                            <p class="text-gray-600 mb-4">Software Engineer</p>
+                            <div class="space-y-2 mb-4">
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
+                                    <span>Sec 15, Whitefield</span>
+                                </div>
+                                <div class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-rupee-sign mr-2 text-green-500"></i>
+                                    <span>₹20,000/month budget</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Non-Smoker</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Vegetarian</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Clean</span>
+                            </div>
+                            <button class="btn-primary w-full" onclick="openRoommateDetails('rahul-sharma')">
+                                <i class="fas fa-eye mr-2"></i>
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- More roommate cards would go here -->
                 </div>
             </div>
         </div>
 
+        <!-- Rentals Page -->
         <div id="rentals" class="page-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <h2 class="text-3xl font-bold text-gray-900 mb-8">Rental Properties</h2>
-                <div id="rentalProperties" class="grid md:grid-cols-3 gap-8">
-                    <!-- Rental properties will be loaded here -->
+                <h2 class="text-4xl font-bold text-gray-900 mb-8 text-center">Premium Rental Properties</h2>
+                <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                    Discover verified rental properties with complete amenities information and transparent pricing.
+                </p>
+
+                <!-- Filters Section -->
+                <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Filter Properties</h3>
+                    
+                    <!-- Furnished Status Filter -->
+                    <div class="mb-6">
+                        <label class="form-label">Furnished Status</label>
+                        <div class="radio-group">
+                            <div class="radio-item" onclick="toggleFurnishedFilter(this, 'any')">
+                                <i class="fas fa-home"></i>
+                                <span>Any</span>
+                            </div>
+                            <div class="radio-item" onclick="toggleFurnishedFilter(this, 'furnished')">
+                                <i class="fas fa-couch"></i>
+                                <span>Furnished</span>
+                            </div>
+                            <div class="radio-item" onclick="toggleFurnishedFilter(this, 'semi-furnished')">
+                                <i class="fas fa-bed"></i>
+                                <span>Semi-Furnished</span>
+                            </div>
+                            <div class="radio-item" onclick="toggleFurnishedFilter(this, 'unfurnished')">
+                                <i class="fas fa-square"></i>
+                                <span>Unfurnished</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Amenities Filter -->
+                    <div class="mb-6">
+                        <label class="form-label">Amenities</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item" onclick="toggleAmenityFilter(this, 'ac')">
+                                <i class="fas fa-snowflake"></i>
+                                <span>Air Conditioning</span>
+                            </div>
+                            <div class="checkbox-item" onclick="toggleAmenityFilter(this, 'wifi')">
+                                <i class="fas fa-wifi"></i>
+                                <span>Wi-Fi</span>
+                            </div>
+                            <div class="checkbox-item" onclick="toggleAmenityFilter(this, 'parking')">
+                                <i class="fas fa-car"></i>
+                                <span>Parking</span>
+                            </div>
+                            <div class="checkbox-item" onclick="toggleAmenityFilter(this, 'gym')">
+                                <i class="fas fa-dumbbell"></i>
+                                <span>Gym</span>
+                            </div>
+                            <div class="checkbox-item" onclick="toggleAmenityFilter(this, 'pool')">
+                                <i class="fas fa-swimming-pool"></i>
+                                <span>Swimming Pool</span>
+                            </div>
+                            <div class="checkbox-item" onclick="toggleAmenityFilter(this, 'elevator')">
+                                <i class="fas fa-elevator"></i>
+                                <span>Elevator</span>
+                            </div>
+                            <div class="checkbox-item" onclick="toggleAmenityFilter(this, 'security')">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>24/7 Security</span>
+                            </div>
+                            <div class="checkbox-item" onclick="toggleAmenityFilter(this, 'balcony')">
+                                <i class="fas fa-door-open"></i>
+                                <span>Balcony</span>
+                            </div>
+                            <div class="checkbox-item" onclick="toggleAmenityFilter(this, 'backup')">
+                                <i class="fas fa-bolt"></i>
+                                <span>Power Backup</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Filters -->
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div>
+                            <label class="form-label">Location</label>
+                            <select class="form-input">
+                                <option>All Locations</option>
+                                <option>Bandra West</option>
+                                <option>Koramangala</option>
+                                <option>Whitefield</option>
+                                <option>Gurgaon</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Property Type</label>
+                            <select class="form-input">
+                                <option>All Types</option>
+                                <option>1 BHK</option>
+                                <option>2 BHK</option>
+                                <option>3 BHK</option>
+                                <option>4+ BHK</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Budget Range</label>
+                            <select class="form-input">
+                                <option>Any Budget</option>
+                                <option>₹15,000 - ₹25,000</option>
+                                <option>₹25,000 - ₹40,000</option>
+                                <option>₹40,000 - ₹60,000</option>
+                                <option>₹60,000+</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button class="btn-primary w-full">
+                                <i class="fas fa-search mr-2"></i>
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Cards -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Property Card 1 -->
+                    <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg">
+                        <img 
+                            src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                            alt="Luxury 2BHK Apartment" 
+                            class="w-full h-48 object-cover" 
+                        />
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">Luxury 2BHK Apartment</h4>
+                            <p class="text-gray-600 mb-4">Sec 15, Bandra West</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-bold text-blue-600">₹45,000/month</span>
+                                <span class="text-sm text-gray-500">1,200 sq ft</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">2 BHK</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Furnished</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">AC</span>
+                                <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">WiFi</span>
+                            </div>
+                            <button class="btn-primary w-full" onclick="openPropertyDetails('luxury-2bhk')">
+                                <i class="fas fa-eye mr-2"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Property Card 2 -->
+                    <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg">
+                        <img 
+                            src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                            alt="Spacious 3BHK House" 
+                            class="w-full h-48 object-cover" 
+                        />
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">Spacious 3BHK House</h4>
+                            <p class="text-gray-600 mb-4">Sec 7, Koramangala</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-bold text-blue-600">₹35,000/month</span>
+                                <span class="text-sm text-gray-500">1,800 sq ft</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">3 BHK</span>
+                                <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Semi-Furnished</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Parking</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Garden</span>
+                            </div>
+                            <button class="btn-primary w-full" onclick="openPropertyDetails('spacious-3bhk')">
+                                <i class="fas fa-eye mr-2"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- More property cards would go here -->
                 </div>
             </div>
         </div>
 
+        <!-- PG Listings Page -->
         <div id="pg" class="page-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <h2 class="text-3xl font-bold text-gray-900 mb-8">PG Accommodations</h2>
-                <div id="pgProperties" class="grid md:grid-cols-3 gap-8">
-                    <!-- PG properties will be loaded here -->
+                <h2 class="text-4xl font-bold text-gray-900 mb-8 text-center">PG Accommodations</h2>
+                <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                    Find comfortable paying guest accommodations with modern amenities and flexible lease terms.
+                </p>
+
+                <!-- PG Cards -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- PG Card 1 -->
+                    <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg">
+                        <img 
+                            src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                            alt="Premium PG" 
+                            class="w-full h-48 object-cover" 
+                        />
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-gray-900 mb-2">Premium PG for Professionals</h4>
+                            <p class="text-gray-600 mb-4">Sec 14, Gurgaon</p>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-2xl font-bold text-blue-600">₹18,000/month</span>
+                                <span class="text-sm text-gray-500">Single Room</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Single</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Meals Included</span>
+                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">AC</span>
+                                <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">WiFi</span>
+                            </div>
+                            <button class="btn-primary w-full" onclick="openPropertyDetails('premium-pg')">
+                                <i class="fas fa-eye mr-2"></i>
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- More PG cards would go here -->
                 </div>
             </div>
         </div>
 
         <!-- List Property Page -->
         <div id="list" class="page-section">
-            <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-4 py-8">
-                <div class="bg-white rounded-lg shadow-lg p-8">
-                    <h2 class="text-sm font-bold text-gray-900 mb-8 text-center">List Your Property</h2>
-                    
-                    <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
-                        <div class="flex items-center">
-                            <i class="fas fa-upload text-amber-600 mr-3"></i>
-                            <span class="text-amber-800 font-medium">Listing Fee: ₹999 (One-time payment)</span>
-                        </div>
-                    </div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <h2 class="text-4xl font-bold text-gray-900 mb-8 text-center">List Your Property</h2>
+                <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+                    Post your property for rent and connect with verified tenants. No registration required!
+                </p>
 
-                    <form id="listPropertyForm" class="space-y-6">
-                        <div class="form-group">
-                            <label class="form-label">Property Title</label>
-                            <input type="text" name="title" class="form-input" placeholder="Enter property title" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Property Type</label>
-                            <select name="type" class="form-input" required>
-                                <option value="">Select property type</option>
-                                <option value="sale">For Sale</option>
-                                <option value="rent">For Rent</option>
-                                <option value="pg">PG Accommodation</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Price (₹)</label>
-                            <input type="number" name="price" class="form-input" placeholder="Enter price" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Location </label>
-                            <input type="text" name="location" class="form-input" placeholder="e.g., Sec 15, Belapur" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Exact Location </label>
-                            <input type="text" name="exactLocation" class="form-input" placeholder="Enter full address with plot/building details" required>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <form id="listPropertyForm" onsubmit="handleListProperty(event)">
+                        <!-- Basic Information -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Property Information</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="form-group">
+                                    <label class="form-label">Property Title</label>
+                                    <input type="text" class="form-input" placeholder="e.g., Spacious 2BHK Apartment" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Property Type</label>
+                                    <select class="form-input" required>
+                                        <option value="">Select Type</option>
+                                        <option value="1bhk">1 BHK</option>
+                                        <option value="2bhk">2 BHK</option>
+                                        <option value="3bhk">3 BHK</option>
+                                        <option value="4bhk">4+ BHK</option>
+                                        <option value="pg">PG</option>
+                                        <option value="house">Independent House</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Monthly Rent (₹)</label>
+                                    <input type="number" class="form-input" placeholder="25000" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Area (sq ft)</label>
+                                    <input type="number" class="form-input" placeholder="1200">
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="grid grid-cols-3 gap-4">
+                        <!-- Location -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Location</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="form-group">
+                                    <label class="form-label">City</label>
+                                    <select class="form-input" required>
+                                        <option value="">Select City</option>
+                                        <option value="mumbai">Mumbai</option>
+                                        <option value="bangalore">Bangalore</option>
+                                        <option value="delhi">Delhi NCR</option>
+                                        <option value="pune">Pune</option>
+                                        <option value="hyderabad">Hyderabad</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Area/Locality</label>
+                                    <input type="text" class="form-input" placeholder="e.g., Bandra West" required>
+                                </div>
+                                <div class="form-group md:col-span-2">
+                                    <label class="form-label">Complete Address</label>
+                                    <textarea class="form-input" rows="3" placeholder="Enter complete address with landmarks" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Furnished Status -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Furnished Status</h3>
+                            <div class="radio-group">
+                                <div class="radio-item" onclick="selectFurnishedStatus(this, 'furnished')">
+                                    <i class="fas fa-couch"></i>
+                                    <span>Furnished</span>
+                                </div>
+                                <div class="radio-item" onclick="selectFurnishedStatus(this, 'semi-furnished')">
+                                    <i class="fas fa-bed"></i>
+                                    <span>Semi-Furnished</span>
+                                </div>
+                                <div class="radio-item" onclick="selectFurnishedStatus(this, 'unfurnished')">
+                                    <i class="fas fa-square"></i>
+                                    <span>Unfurnished</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Amenities -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Available Amenities</h3>
+                            <div class="checkbox-group">
+                                <div class="checkbox-item" onclick="toggleAmenity(this, 'ac')">
+                                    <i class="fas fa-snowflake"></i>
+                                    <span>Air Conditioning</span>
+                                </div>
+                                <div class="checkbox-item" onclick="toggleAmenity(this, 'wifi')">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>Wi-Fi</span>
+                                </div>
+                                <div class="checkbox-item" onclick="toggleAmenity(this, 'parking')">
+                                    <i class="fas fa-car"></i>
+                                    <span>Parking</span>
+                                </div>
+                                <div class="checkbox-item" onclick="toggleAmenity(this, 'gym')">
+                                    <i class="fas fa-dumbbell"></i>
+                                    <span>Gym</span>
+                                </div>
+                                <div class="checkbox-item" onclick="toggleAmenity(this, 'pool')">
+                                    <i class="fas fa-swimming-pool"></i>
+                                    <span>Swimming Pool</span>
+                                </div>
+                                <div class="checkbox-item" onclick="toggleAmenity(this, 'elevator')">
+                                    <i class="fas fa-elevator"></i>
+                                    <span>Elevator</span>
+                                </div>
+                                <div class="checkbox-item" onclick="toggleAmenity(this, 'security')">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>24/7 Security</span>
+                                </div>
+                                <div class="checkbox-item" onclick="toggleAmenity(this, 'balcony')">
+                                    <i class="fas fa-door-open"></i>
+                                    <span>Balcony</span>
+                                </div>
+                                <div class="checkbox-item" onclick="toggleAmenity(this, 'backup')">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Power Backup</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Contact Information</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="form-group">
+                                    <label class="form-label">Owner Name</label>
+                                    <input type="text" class="form-input" placeholder="Your full name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-input" placeholder="+91 98765 43210" required>
+                                </div>
+                                <div class="form-group md:col-span-2">
+                                    <label class="form-label">Email Address (Optional)</label>
+                                    <input type="email" class="form-input" placeholder="your.email@example.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Details -->
+                        <div class="mb-8">
+                            <h3 class="text-xl font-bold text-gray-900 mb-4">Additional Details</h3>
                             <div class="form-group">
-                                <label class="form-label">Bedrooms</label>
-                                <input type="number" name="bedrooms" class="form-input" min="1" value="1" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Bathrooms</label>
-                                <input type="number" name="bathrooms" class="form-input" min="1" value="1" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Area (sq ft)</label>
-                                <input type="number" name="area" class="form-input" min="1" value="500" required>
+                                <label class="form-label">Property Description</label>
+                                <textarea class="form-input" rows="4" placeholder="Describe your property, nearby landmarks, transportation, etc."></textarea>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label">Description</label>
-                            <textarea name="description" class="form-input" rows="4" placeholder="Describe your property" required></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Property Images</label>
-                            <div class="image-upload-area" onclick="document.getElementById('imageInput').click()">
-                                <i class="fas fa-cloud-upload-alt text-gray-400 text-4xl mb-4"></i>
-                                <p class="text-gray-600">Click to upload images</p>
-                                <input type="file" id="imageInput" multiple accept="image/*" style="display: none;" onchange="handleImageUpload(event)">
-                            </div>
-                            <div id="imagePreviews" class="mt-4 grid grid-cols-3 gap-4"></div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Contact Number</label>
-                            <input type="tel" name="contact" class="form-input" placeholder="Enter contact number" required>
-                        </div>
-
-                        <button type="submit" class="btn-primary w-full py-4 text-lg">
-                            <i class="fas fa-upload mr-2"></i>
-                            List Property for ₹999
+                        <button type="submit" class="btn-primary w-full text-lg">
+                            <i class="fas fa-plus mr-2"></i>
+                            List Property
                         </button>
                     </form>
                 </div>
@@ -696,489 +1228,357 @@
         </div>
     </main>
 
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contacts">
+        <button class="floating-btn whatsapp-btn" onclick="contactWhatsApp()" title="WhatsApp Support">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+        <button class="floating-btn email-btn" onclick="contactEmail()" title="Email Support">
+            <i class="fas fa-envelope"></i>
+        </button>
+    </div>
+
+ 
     <!-- Footer -->
     <footer class="footer">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
-                <!-- Company Info -->
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 bluechip-gradient rounded-lg flex items-center justify-center">
-                            <i class="fas fa-building text-white"></i>
-                        </div>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="w-10 h-10 bluechip-gradient rounded-lg flex items-center justify-center">
+                        <i class="fas fa-building text-white"></i>
+                    </div>
+                    <div>
                         <h3 class="text-xl font-bold">BluechipProperty</h3>
-                    </div>
-                    <p class="text-gray-400 mb-4">Premium property solutions with transparent pricing. Find your dream home or list your property with us.</p>
-                    <div class="flex space-x-3">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+                        <p class="text-sm text-gray-400">Premium Solutions</p>
                     </div>
                 </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h3>Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" onclick="showPage('home')">Home</a></li>
-                        <li><a href="#" onclick="showPage('sale')">Properties for Sale</a></li>
-                        <li><a href="#" onclick="showPage('rentals')">Rental Properties</a></li>
-                        <li><a href="#" onclick="showPage('pg')">PG Listings</a></li>
-                        <li><a href="#" onclick="showPage('list')">List Property</a></li>
-                    </ul>
-                </div>
-
-                <!-- Services -->
-                <div>
-                    <h3>Services</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#">Property Valuation</a></li>
-                        <li><a href="#">Home Loans</a></li>
-                        <li><a href="#">Legal Services</a></li>
-                        <li><a href="#">Property Management</a></li>
-                        <li><a href="#">Investment Consulting</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div>
-                    <h3>Contact Us</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-phone mr-2 text-blue-500"></i>
-                            <span>+91 98765 43210</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2 text-blue-500"></i>
-                            <span>info@bluechipproperty.com</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2 text-blue-500"></i>
-                            <span>Navi Mumbai, Maharashtra</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-clock mr-2 text-blue-500"></i>
-                            <span>Mon - Sat: 9AM - 7PM</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-divider"></div>
-            
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm">
-                    &copy; 2024 BluechipProperty. All rights reserved.
+                <p class="text-gray-300 mb-4">
+                    Your trusted partner for finding the perfect living space. Connecting people with their ideal homes since 2024.
                 </p>
-                <div class="flex space-x-6 mt-2 md:mt-0">
-                    <a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
+
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#" onclick="showPage('roommates')">Find Roommates</a></li>
+                    <li><a href="#" onclick="showPage('rentals')">Rental Properties</a></li>
+                    <li><a href="#" onclick="showPage('pg')">PG Accommodations</a></li>
+                    <li><a href="#" onclick="showPage('list')">List Property</a></li>
+                    <li><a href="#">Property Management</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Safety Guidelines</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 BluechipProperty. All rights reserved. | Designed with ❤️ for better living</p>
         </div>
     </footer>
 
     <!-- Sign In Modal -->
     <div id="signInModal" class="modal">
-        <div class="modal-content" style="max-width: 400px;">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold">Sign In</h2>
-                <button onclick="closeSignInModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <div class="space-y-4">
-                <button onclick="signInWithGoogle()" class="sign-in-btn">
-                    <i class="fab fa-google mr-2"></i>
-                    Continue with Google
-                </button>
-                
-                <button onclick="signInWithTwitter()" class="sign-in-btn twitter">
-                    <i class="fab fa-twitter mr-2"></i>
-                    Continue with Twitter
-                </button>
-                
-                <div class="divider">
-                    <span class="bg-white px-4 text-gray-500">or</span>
-                </div>
-                
-                <form id="emailSignInForm" class="space-y-4">
-                    <div class="form-group">
-                        <label class="form-label">Email</label>
-                        <input type="email" name="email" class="form-input" placeholder="Enter your email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Password</label>
-                        <input type="password" name="password" class="form-input" placeholder="Enter your password" required>
-                    </div>
-                    
-                    <button type="submit" class="btn-primary w-full">
-                        <i class="fas fa-sign-in-alt mr-2"></i>
-                        Sign In
-                    </button>
-                </form>
-                
-                <div class="text-center">
-                    <p class="text-gray-600 text-sm">
-                        Don't have an account? 
-                        <a href="#" class="text-blue-600 hover:underline" onclick="switchToSignUp()">Sign up here</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Property Modal -->
-    <div id="propertyModal" class="modal">
         <div class="modal-content">
             <div class="flex justify-between items-center mb-6">
-                <h2 id="modalTitle" class="text-2xl font-bold"></h2>
-                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
-                    <i class="fas fa-times"></i>
+                <h2 class="text-2xl font-bold text-gray-900">Welcome Back</h2>
+                <button onclick="closeSignInModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
                 </button>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <img id="modalImage" src="" alt="" class="w-full h-64 object-cover rounded-lg mb-4">
-                    
-                    <div class="grid grid-cols-3 gap-4 mb-6">
-                        <div class="text-center p-3 bg-gray-50 rounded-lg">
-                            <i class="fas fa-bed text-blue-600 text-xl mb-2"></i>
-                            <div class="text-sm text-gray-600">Bedrooms</div>
-                            <div id="modalBedrooms" class="font-bold"></div>
-                        </div>
-                        <div class="text-center p-3 bg-gray-50 rounded-lg">
-                            <i class="fas fa-bath text-blue-600 text-xl mb-2"></i>
-                            <div class="text-sm text-gray-600">Bathrooms</div>
-                            <div id="modalBathrooms" class="font-bold"></div>
-                        </div>
-                        <div class="text-center p-3 bg-gray-50 rounded-lg">
-                            <i class="fas fa-expand-arrows-alt text-blue-600 text-xl mb-2"></i>
-                            <div class="text-sm text-gray-600">Area</div>
-                            <div id="modalArea" class="font-bold"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <div id="modalPrice" class="text-3xl font-bold text-blue-600 mb-4"></div>
-                    
-                    <div id="locationInfo" class="masked-info mb-4">
-                        <div class="flex items-center justify-between">
-                            <span class="flex items-center">
-                                <i class="fas fa-map-marker-alt mr-2"></i>
-                                <span id="locationText"></span>
-                            </span>
-                            <button id="unlockLocationBtn" class="unlock-btn" onclick="unlockLocation()">
-                                ₹49
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div id="contactInfo" class="masked-info mb-6">
-                        <div class="flex items-center justify-between">
-                            <span class="flex items-center">
-                                <i class="fas fa-phone mr-2"></i>
-                                <span id="contactText"></span>
-                            </span>
-                            <button id="unlockContactBtn" class="unlock-btn" onclick="unlockContact()">
-                                ₹99
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-6">
-                        <h4 class="text-lg font-bold text-gray-900 mb-2">Description</h4>
-                        <p id="modalDescription" class="text-gray-600"></p>
-                    </div>
-                    
-                    <button class="contact-agent-btn" onclick="contactAgent()">
-                        <i class="fas fa-user mr-2"></i>
-                        Contact Agent
-                    </button>
-                    
-                    <div id="virtualRoomSection" class="mt-6" style="display: none;">
-                        <h4 class="text-lg font-bold text-gray-900 mb-4">Virtual Room View</h4>
-                        <div id="virtualRoom" class="virtual-room">
-                            <!-- Virtual room beds will be populated here -->
-                        </div>
-                        <div class="flex items-center justify-center mt-4 text-sm text-gray-600">
-                            <div class="flex items-center mr-6">
-                                <div class="w-4 h-4 bg-white border-2 border-gray-300 rounded mr-2"></div>
-                                <span>Available</span>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-4 h-4 bg-red-100 border-2 border-red-400 rounded mr-2"></div>
-                                <span>Occupied</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Social Login Buttons -->
+            <div class="space-y-3 mb-6">
+                <button class="btn-social btn-google">
+                    <i class="fab fa-google text-red-500"></i>
+                    <span>Continue with Google</span>
+                </button>
+                <button class="btn-social btn-twitter">
+                    <i class="fab fa-twitter text-blue-500"></i>
+                    <span>Continue with Twitter</span>
+                </button>
             </div>
-        </div>
-    </div>
 
-    <!-- Bed Booking Modal -->
-    <div id="bedBookingModal" class="modal">
-        <div class="modal-content" style="max-width: 500px;">
-            <div class="flex justify-between items-center mb-6">
-                <h2 id="bedBookingTitle" class="text-xl font-bold">Book Bed #1</h2>
-                <button onclick="closeBedBookingModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
-                    <i class="fas fa-times"></i>
-                </button>
+            <div class="divider">
+                <span>or sign in with email</span>
             </div>
-            
-            <form id="bedBookingForm" class="space-y-4">
+
+            <form id="signInForm" onsubmit="handleSignIn(event)">
                 <div class="form-group">
-                    <label class="form-label">Your Name</label>
-                    <input type="text" name="name" class="form-input" placeholder="Enter your name" required>
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" placeholder="Enter your email" required>
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label">Contact Number</label>
-                    <input type="tel" name="contact" class="form-input" placeholder="Enter your contact number" required>
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" placeholder="Enter your password" required>
                 </div>
                 
-                <div class="form-group">
-                    <label class="form-label">Check-in Date</label>
-                    <input type="date" name="checkin" class="form-input" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Duration</label>
-                    <select name="duration" class="form-input" required>
-                        <option value="">Select duration</option>
-                        <option value="1">1 Month</option>
-                        <option value="3">3 Months</option>
-                        <option value="6">6 Months</option>
-                        <option value="12">12 Months</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Additional Details</label>
-                    <textarea name="details" class="form-input" rows="3" placeholder="Any special requirements or notes"></textarea>
+                <div class="flex items-center justify-between mb-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="mr-2">
+                        <span class="text-sm text-gray-600">Remember me</span>
+                    </label>
+                    <a href="#" onclick="openForgotPasswordModal()" class="forgot-password-link">
+                        Forgot password?
+                    </a>
                 </div>
                 
                 <button type="submit" class="btn-primary w-full">
-                    <i class="fas fa-paper-plane mr-2"></i>
-                    Submit Booking Request
+                    <i class="fas fa-sign-in-alt mr-2"></i>
+                    Sign In
                 </button>
             </form>
+            
+            <p class="text-center text-gray-600 mt-6">
+                Don't have an account? 
+                <a href="#" class="text-blue-600 hover:text-blue-700 font-medium">Sign up here</a>
+            </p>
         </div>
     </div>
 
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">Reset Password</h2>
+                <button onclick="closeForgotPasswordModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="forgotPasswordForm" onsubmit="handleForgotPassword(event)">
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" placeholder="Enter your email address" required>
+                    <p class="text-sm text-gray-500 mt-2">
+                        We'll send you a link to reset your password.
+                    </p>
+                </div>
+                
+                <button type="submit" class="btn-primary w-full">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Send Reset Link
+                </button>
+            </form>
+            
+            <div class="text-center mt-6">
+                <button onclick="backToSignIn()" class="text-blue-600 hover:text-blue-700 font-medium">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Back to Sign In
+                </button>
+            </div>
+        </div>
+    </div>
 
+    <!-- Property Details Modal -->
+    <div id="propertyDetailsModal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="flex justify-between items-center mb-6">
+                <h2 id="propertyDetailsTitle" class="text-2xl font-bold text-gray-900">Property Details</h2>
+                <button onclick="closePropertyDetailsModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="propertyDetailsContent">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
 
+    <!-- Roommate Details Modal -->
+    <div id="roommateDetailsModal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="flex justify-between items-center mb-6">
+                <h2 id="roommateDetailsTitle" class="text-2xl font-bold text-gray-900">Roommate Profile</h2>
+                <button onclick="closeRoommateDetailsModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="roommateDetailsContent">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
 
-    <!-- Toast Container -->
-    <div id="toastContainer"></div>
+    <!-- Payment Modal for Address -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">Unlock Full Address</h2>
+                <button onclick="closePaymentModal()" class="text-gray-400 hover:text-gray-600">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="text-center mb-6">
+                <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-lock text-yellow-600 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Premium Feature</h3>
+                <p class="text-gray-600">Get access to complete address and contact details</p>
+            </div>
+
+            <div class="bg-blue-50 rounded-lg p-4 mb-6">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h4 class="font-semibold text-gray-900">Address Unlock</h4>
+                        <p class="text-sm text-gray-600">One-time payment for full details</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-2xl font-bold text-blue-600">₹149</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4 mb-6">
+                <div class="flex items-center text-sm text-gray-600">
+                    <i class="fas fa-check text-green-500 mr-3"></i>
+                    <span>Complete property address</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                    <i class="fas fa-check text-green-500 mr-3"></i>
+                    <span>Owner contact information</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                    <i class="fas fa-check text-green-500 mr-3"></i>
+                    <span>Direct WhatsApp contact</span>
+                </div>
+                <div class="flex items-center text-sm text-gray-600">
+                    <i class="fas fa-check text-green-500 mr-3"></i>
+                    <span>Property location on map</span>
+                </div>
+            </div>
+
+            <button onclick="processPayment()" class="btn-primary w-full text-lg">
+                <i class="fas fa-credit-card mr-2"></i>
+                Pay ₹149 & Unlock Details
+            </button>
+
+            <p class="text-xs text-gray-500 text-center mt-4">
+                Secure payment powered by BluechipProperty
+            </p>
+        </div>
+    </div>
 
     <script>
-        // Sample Property Data
-        const properties = [
-            {
-                id: 1,
-                title: "Luxury 3BHK Apartment",
-                type: "sale",
-                price: 12500000,
-                maskedLocation: "Sec 15, Belapur",
-                exactLocation: "Sector 15, Plot 23, Belapur, Navi Mumbai - 400614",
-                maskedContact: "99XXXXXXX",
-                fullContact: "9987654321",
-                description: "Spacious 3BHK apartment with modern amenities, parking, and 24/7 security. Prime location with easy access to schools, hospitals, and shopping centers.",
-                image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-                bedrooms: 3,
-                bathrooms: 2,
-                area: 1250,
-                isPG: false,
-                virtualRoom: null,
-                status: "active"
+        // Property data with partial addresses
+        const propertyData = {
+            'luxury-2bhk': {
+                name: 'Luxury 2BHK Apartment',
+                price: '₹45,000/month',
+                size: '1,200 sq ft',
+                type: '2 BHK',
+                furnished: 'Furnished',
+                partialAddress: 'Sec 15, Bandra West',
+                fullAddress: 'Building A-302, Sector 15, Bandra West, Mumbai 400050',
+                amenities: ['AC', 'WiFi', 'Parking', 'Gym', 'Swimming Pool', 'Security'],
+                description: 'Spacious 2BHK apartment with modern amenities and great connectivity.',
+                contact: '+91 98765 43210',
+                ownerName: 'Raj Patel',
+                images: ['https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600']
             },
-            {
-                id: 2,
-                title: "Modern 2BHK Rental",
-                type: "rent",
-                price: 25000,
-                maskedLocation: "Sec 7, Vashi",
-                exactLocation: "Sector 7, Building A-301, Vashi, Navi Mumbai - 400703",
-                maskedContact: "98XXXXXXX",
-                fullContact: "9876543210",
-                description: "Well-furnished 2BHK apartment for rent with all modern amenities. Ideal for families and working professionals.",
-                image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-                bedrooms: 2,
-                bathrooms: 1,
-                area: 900,
-                isPG: false,
-                virtualRoom: null,
-                status: "active"
+            'spacious-3bhk': {
+                name: 'Spacious 3BHK House',
+                price: '₹35,000/month',
+                size: '1,800 sq ft',
+                type: '3 BHK',
+                furnished: 'Semi-Furnished',
+                partialAddress: 'Sec 7, Koramangala',
+                fullAddress: 'House No. 42, 7th Block, Koramangala, Bangalore 560095',
+                amenities: ['Parking', 'Garden', 'WiFi', 'Security', 'Power Backup'],
+                description: 'Independent house with garden and ample parking space.',
+                contact: '+91 98123 45678',
+                ownerName: 'Priya Sharma',
+                images: ['https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600']
             },
-            {
-                id: 3,
-                title: "Premium PG for Students",
-                type: "pg",
-                price: 12000,
-                maskedLocation: "Sec 12, Kharghar",
-                exactLocation: "Sector 12, Near Railway Station, Kharghar, Navi Mumbai - 410210",
-                maskedContact: "97XXXXXXX",
-                fullContact: "9765432109",
-                description: "Comfortable PG accommodation with AC rooms, WiFi, meals, and housekeeping. Perfect for students and working professionals.",
-                image: "https://images.unsplash.com/photo-1555854877-bab0e460b527?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-                bedrooms: 4,
-                bathrooms: 2,
-                area: 200,
-                isPG: true,
-                virtualRoom: {
-                    beds: 4,
-                    occupancy: [false, true, false, false]
-                },
-                status: "active"
-            },
-            {
-                id: 4,
-                title: "Cozy 1BHK Studio",
-                type: "rent",
-                price: 18000,
-                maskedLocation: "Sec 20, CBD Belapur",
-                exactLocation: "Sector 20, Tower B-1205, CBD Belapur, Navi Mumbai - 400614",
-                maskedContact: "96XXXXXXX",
-                fullContact: "9654321098",
-                description: "Modern studio apartment perfect for singles or couples. Fully furnished with balcony and city view.",
-                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-                bedrooms: 1,
-                bathrooms: 1,
-                area: 650,
-                isPG: false,
-                virtualRoom: null,
-                status: "active"
-            },
-            {
-                id: 5,
-                title: "Executive PG - AC Rooms",
-                type: "pg",
-                price: 15000,
-                maskedLocation: "Sec 8, Airoli",
-                exactLocation: "Sector 8, Opposite Metro Station, Airoli, Navi Mumbai - 400708",
-                maskedContact: "95XXXXXXX",
-                fullContact: "9543210987",
-                description: "Premium PG with AC rooms, gym, common area, and 24/7 security. All meals included with housekeeping service.",
-                image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-                bedrooms: 2,
-                bathrooms: 2,
-                area: 150,
-                isPG: true,
-                virtualRoom: {
-                    beds: 2,
-                    occupancy: [true, false]
-                },
-                status: "active"
-            },
-            {
-                id: 6,
-                title: "Spacious 4BHK Villa",
-                type: "sale",
-                price: 28500000,
-                maskedLocation: "Sec 22, Kamothe",
-                exactLocation: "Sector 22, Villa Complex, Kamothe, Navi Mumbai - 410209",
-                maskedContact: "94XXXXXXX",
-                fullContact: "9432109876",
-                description: "Independent villa with garden, parking for 2 cars, and premium fittings. Quiet residential area with excellent connectivity.",
-                image: "https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-                bedrooms: 4,
-                bathrooms: 3,
-                area: 2200,
-                isPG: false,
-                virtualRoom: null,
-                status: "active"
+            'premium-pg': {
+                name: 'Premium PG for Professionals',
+                price: '₹18,000/month',
+                size: 'Single Room',
+                type: 'PG',
+                furnished: 'Fully Furnished',
+                partialAddress: 'Sec 14, Gurgaon',
+                fullAddress: 'Block C-201, Sector 14, Gurgaon, Haryana 122001',
+                amenities: ['Meals', 'WiFi', 'AC', 'Laundry', 'Security', 'Housekeeping'],
+                description: 'Premium PG accommodation with all meals and modern facilities.',
+                contact: '+91 98234 56789',
+                ownerName: 'Amit Kumar',
+                images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600']
             }
-        ];
+        };
 
-        // Global variables
-        let currentProperty = null;
-        let selectedBed = null;
-        let uploadedImages = [];
-
-        // Utility Functions
-        function formatPrice(price, type) {
-            if (type === 'sale') {
-                return `₹${(price / 100000).toFixed(1)} Lakhs`;
-            } else {
-                return `₹${price.toLocaleString()}/month`;
+        const roommateData = {
+            'rahul-sharma': {
+                name: 'Rahul Sharma',
+                profession: 'Software Engineer',
+                age: 26,
+                partialAddress: 'Sec 15, Whitefield',
+                fullAddress: 'Prestige Tech Park, Sector 15, Whitefield, Bangalore 560066',
+                budget: '₹20,000/month',
+                preferences: ['Non-Smoker', 'Vegetarian', 'Clean', 'Quiet'],
+                contact: '+91 98765 12345',
+                email: 'rahul.sharma@email.com',
+                description: 'Working professional looking for a clean and peaceful living environment.',
+                images: ['https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400']
             }
-        }
+        };
 
-        function showToast(message, type = 'success') {
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            toast.innerHTML = `
-                <div class="flex items-center justify-between">
-                    <span>${message}</span>
-                    <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-gray-500 hover:text-gray-700">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            `;
-            
-            document.getElementById('toastContainer').appendChild(toast);
-            
-            setTimeout(() => {
-                toast.classList.add('show');
-            }, 100);
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-                setTimeout(() => toast.remove(), 300);
-            }, 5000);
-        }
+        let currentPropertyId = null;
+        let hasUnlockedAddress = false;
 
-        // Navigation Functions
-        function showPage(page) {
+        // Navigation and page switching
+        function showPage(pageId) {
             // Hide all pages
             const pages = document.querySelectorAll('.page-section');
-            pages.forEach(p => p.classList.remove('active'));
-            
+            pages.forEach(page => page.classList.remove('active'));
+
             // Show selected page
-            document.getElementById(page).classList.add('active');
-            
+            document.getElementById(pageId).classList.add('active');
+
             // Update nav links
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('data-page') === page || 
-                   (page === 'sale' && link.getAttribute('data-page') === 'sale') ||
-                   (page === 'rentals' && link.getAttribute('data-page') === 'rentals') ||
-                   (page === 'pg' && link.getAttribute('data-page') === 'pg') ||
-                   (page === 'list' && link.getAttribute('data-page') === 'list') ||
-                   (page === 'home' && link.getAttribute('data-page') === 'home')) {
+                if (link.getAttribute('data-page') === pageId) {
                     link.classList.add('active');
                 }
             });
-            
-            // Load properties based on page
-            if (page === 'home') {
-                loadFeaturedProperties();
-            } else if (page === 'sale') {
-                loadPropertiesByType('sale', 'saleProperties');
-            } else if (page === 'rentals') {
-                loadPropertiesByType('rent', 'rentalProperties');
-            } else if (page === 'pg') {
-                loadPropertiesByType('pg', 'pgProperties');
-            }
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.add('hidden');
+            document.getElementById('menuIcon').className = 'fas fa-bars text-gray-700 text-xl';
         }
 
+        // Mobile menu toggle
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             const menuIcon = document.getElementById('menuIcon');
@@ -1192,210 +1592,7 @@
             }
         }
 
-        // Property Loading Functions
-        function loadFeaturedProperties() {
-            const container = document.getElementById('featuredProperties');
-            const featuredProps = properties.slice(0, 3);
-            container.innerHTML = featuredProps.map(property => createPropertyCard(property)).join('');
-        }
-
-        function loadPropertiesByType(type, containerId) {
-            const container = document.getElementById(containerId);
-            const filteredProps = properties.filter(p => p.type === type);
-            
-            if (filteredProps.length === 0) {
-                container.innerHTML = `
-                    <div class="col-span-full text-center py-12">
-                        <p class="text-gray-600 text-lg">No properties found for this category.</p>
-                    </div>
-                `;
-            } else {
-                container.innerHTML = filteredProps.map(property => createPropertyCard(property)).join('');
-            }
-        }
-
-        function createPropertyCard(property) {
-            const priceText = property.type === 'sale' 
-                ? `₹${(property.price / 100000).toFixed(1)}L`
-                : `₹${property.price.toLocaleString()}/month`;
-
-            return `
-                <div class="property-card bg-white rounded-xl shadow-lg overflow-hidden" onclick="openPropertyModal(${property.id})">
-                    <div class="relative">
-                        <img src="${property.image}" alt="${property.title}" class="w-full h-48 object-cover">
-                        <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                            ${property.type.toUpperCase()}
-                        </div>
-                    </div>
-                    
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">${property.title}</h3>
-                        
-                        <div class="flex items-center text-gray-600 mb-2">
-                            <i class="fas fa-map-marker-alt mr-2"></i>
-                            <span>${property.maskedLocation}</span>
-                        </div>
-                        
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="text-2xl font-bold text-blue-600">${priceText}</div>
-                            <div class="flex items-center text-gray-500 text-sm">
-                                <i class="fas fa-bed mr-1"></i>
-                                <span class="mr-3">${property.bedrooms} bed</span>
-                                <i class="fas fa-bath mr-1"></i>
-                                <span>${property.bathrooms} bath</span>
-                            </div>
-                        </div>
-                        
-                        <button class="btn-primary w-full">
-                            <i class="fas fa-eye mr-2"></i>
-                            View Details
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Modal Functions
-        function openPropertyModal(propertyId) {
-            currentProperty = properties.find(p => p.id === propertyId);
-            if (!currentProperty) return;
-
-            // Populate modal content
-            document.getElementById('modalTitle').textContent = currentProperty.title;
-            document.getElementById('modalImage').src = currentProperty.image;
-            document.getElementById('modalImage').alt = currentProperty.title;
-            document.getElementById('modalBedrooms').textContent = currentProperty.bedrooms;
-            document.getElementById('modalBathrooms').textContent = currentProperty.bathrooms;
-            document.getElementById('modalArea').textContent = currentProperty.area + ' sq ft';
-            document.getElementById('modalPrice').textContent = formatPrice(currentProperty.price, currentProperty.type);
-            document.getElementById('modalDescription').textContent = currentProperty.description;
-            
-            // Location info
-            document.getElementById('locationText').textContent = currentProperty.maskedLocation;
-            document.getElementById('unlockLocationBtn').style.display = 'block';
-            
-            // Contact info
-            document.getElementById('contactText').textContent = currentProperty.maskedContact;
-            document.getElementById('unlockContactBtn').style.display = 'block';
-            
-            // Virtual room for PG properties
-            if (currentProperty.isPG && currentProperty.virtualRoom) {
-                document.getElementById('virtualRoomSection').style.display = 'block';
-                createVirtualRoom(currentProperty.virtualRoom);
-            } else {
-                document.getElementById('virtualRoomSection').style.display = 'none';
-            }
-
-            // Show modal
-            document.getElementById('propertyModal').classList.add('show');
-        }
-
-        function closeModal() {
-            document.getElementById('propertyModal').classList.remove('show');
-            currentProperty = null;
-        }
-
-        function createVirtualRoom(virtualRoom) {
-            const container = document.getElementById('virtualRoom');
-            container.className = `virtual-room ${virtualRoom.beds === 4 ? 'four-bed' : 'two-bed'}`;
-            
-            container.innerHTML = virtualRoom.occupancy.map((occupied, index) => `
-                <div class="bed-selector ${occupied ? 'occupied' : ''}" 
-                     onclick="selectBed(${index}, ${occupied})"
-                     title="${occupied ? 'Occupied' : 'Available'}">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <i class="fas fa-bed text-gray-400"></i>
-                    </div>
-                    <div class="absolute bottom-1 right-1 text-xs font-bold">
-                        ${index + 1}
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function selectBed(bedIndex, isOccupied) {
-            if (isOccupied) return;
-            
-            selectedBed = bedIndex;
-            document.getElementById('bedBookingTitle').textContent = `Book Bed #${bedIndex + 1}`;
-            document.getElementById('bedBookingModal').classList.add('show');
-        }
-
-        function closeBedBookingModal() {
-            document.getElementById('bedBookingModal').classList.remove('show');
-            selectedBed = null;
-        }
-
-        // Payment Functions
-        function unlockLocation() {
-            if (!currentProperty) return;
-            
-            const btn = document.getElementById('unlockLocationBtn');
-            btn.innerHTML = '<div class="loading-spinner"></div>';
-            btn.disabled = true;
-            
-            // Simulate payment processing
-            setTimeout(() => {
-                document.getElementById('locationText').textContent = currentProperty.exactLocation;
-                btn.style.display = 'none';
-                showToast('Location unlocked successfully!');
-            }, 1500);
-        }
-
-        function unlockContact() {
-            if (!currentProperty) return;
-            
-            const btn = document.getElementById('unlockContactBtn');
-            btn.innerHTML = '<div class="loading-spinner"></div>';
-            btn.disabled = true;
-            
-            // Simulate payment processing
-            setTimeout(() => {
-                document.getElementById('contactText').textContent = currentProperty.fullContact;
-                btn.style.display = 'none';
-                
-                // Add call button
-                const contactInfo = document.getElementById('contactInfo');
-                contactInfo.innerHTML = `
-                    <div class="flex items-center justify-between">
-                        <span class="flex items-center">
-                            <i class="fas fa-phone mr-2"></i>
-                            <span>${currentProperty.fullContact}</span>
-                        </span>
-                        <button onclick="window.open('tel:${currentProperty.fullContact}', '_blank')" class="btn-primary text-sm px-3 py-1">
-                            <i class="fas fa-phone mr-1"></i>
-                            Call Now
-                        </button>
-                    </div>
-                `;
-                
-                showToast('Contact details unlocked successfully!');
-            }, 1500);
-        }
-
-        function contactAgent() {
-            if (!currentProperty) return;
-            
-            const message = `Hi, I'm interested in ${currentProperty.title} located at ${currentProperty.maskedLocation}. Can you provide more details?`;
-            const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        function handlePricingClick(type) {
-            switch(type) {
-                case 'location':
-                    showToast('Click on any property to unlock exact location for ₹49', 'info');
-                    break;
-                case 'contact':
-                    showToast('Click on any property to unlock full contact details for ₹99', 'info');
-                    break;
-                case 'listing':
-                    showPage('list');
-                    break;
-            }
-        }
-
-        // Sign In Functions
+        // Modal functions
         function openSignInModal() {
             document.getElementById('signInModal').classList.add('show');
         }
@@ -1404,186 +1601,361 @@
             document.getElementById('signInModal').classList.remove('show');
         }
 
-        function signInWithGoogle() {
-            showToast('Google Sign In successful! Welcome back.');
+        function openForgotPasswordModal() {
             closeSignInModal();
-            updateSignInState('Google User');
+            document.getElementById('forgotPasswordModal').classList.add('show');
         }
 
-        function signInWithTwitter() {
-            showToast('Twitter Sign In successful! Welcome back.');
+        function closeForgotPasswordModal() {
+            document.getElementById('forgotPasswordModal').classList.remove('show');
+        }
+
+        function backToSignIn() {
+            closeForgotPasswordModal();
+            openSignInModal();
+        }
+
+        // Form handlers
+        function handleSignIn(event) {
+            event.preventDefault();
+            alert('Sign in functionality would be implemented here');
             closeSignInModal();
-            updateSignInState('Twitter User');
         }
 
-        function updateSignInState(userName) {
-            const signInBtn = document.querySelector('nav button[onclick="openSignInModal()"]');
-            const mobileSignInBtn = document.querySelector('#mobileMenu button[onclick*="openSignInModal"]');
+        function handleForgotPassword(event) {
+            event.preventDefault();
+            alert('Password reset link sent to your email!');
+            closeForgotPasswordModal();
+        }
+
+        // Floating contact functions
+        function contactWhatsApp() {
+            const phoneNumber = '919876543210';
+            const message = 'Hi! I need help with BluechipProperty services.';
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function contactEmail() {
+            const email = 'support@bluechipproperty.com';
+            const subject = 'Support Request - BluechipProperty';
+            const body = 'Hi,\n\nI need assistance with BluechipProperty services.\n\nRegards';
+            const emailUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = emailUrl;
+        }
+
+        // Property Details Functions
+        function openPropertyDetails(propertyId) {
+            currentPropertyId = propertyId;
+            const property = propertyData[propertyId];
+            if (!property) return;
+
+            document.getElementById('propertyDetailsTitle').textContent = property.name;
             
-            if (signInBtn) {
-                signInBtn.innerHTML = `
-                    <i class="fas fa-user-circle mr-2"></i>
-                    ${userName}
-                `;
-                signInBtn.setAttribute('onclick', 'showUserMenu()');
-            }
-            
-            if (mobileSignInBtn) {
-                mobileSignInBtn.innerHTML = `
-                    <i class="fas fa-user-circle mr-2"></i>
-                    ${userName}
-                `;
-                mobileSignInBtn.setAttribute('onclick', 'showUserMenu(); toggleMobileMenu()');
-            }
-        }
-
-        function showUserMenu() {
-            showToast('User menu functionality coming soon!');
-        }
-
-        function switchToSignUp() {
-            showToast('Sign up functionality coming soon!');
-        }
-
-        // Form Handling
-        function handleImageUpload(event) {
-            const files = Array.from(event.target.files);
-            const previewContainer = document.getElementById('imagePreviews');
-            
-            files.forEach((file, index) => {
-                if (file.type.startsWith('image/') && file.size <= 5 * 1024 * 1024) {
-                    uploadedImages.push(file);
+            const content = `
+                <div class="space-y-6">
+                    <img src="${property.images[0]}" alt="${property.name}" class="w-full h-64 object-cover rounded-lg">
                     
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const div = document.createElement('div');
-                        div.className = 'relative';
-                        div.innerHTML = `
-                            <img src="${e.target.result}" alt="Property ${uploadedImages.length}" class="w-full h-24 object-cover rounded-lg">
-                            <button type="button" onclick="removeImage(${uploadedImages.length - 1})" 
-                                    class="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs hover:bg-red-600">
-                                <i class="fas fa-times"></i>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <div class="detail-label">Price</div>
+                            <div class="detail-value text-2xl font-bold text-blue-600">${property.price}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Size</div>
+                            <div class="detail-value">${property.size}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Type</div>
+                            <div class="detail-value">${property.type}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Furnished</div>
+                            <div class="detail-value">${property.furnished}</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="detail-label mb-2">Address</div>
+                        <div class="relative">
+                            <div class="${hasUnlockedAddress ? '' : 'blur-address'}">${hasUnlockedAddress ? property.fullAddress : property.partialAddress}</div>
+                            ${!hasUnlockedAddress ? `
+                                <div class="unlock-overlay">
+                                    <button onclick="openPaymentModal()" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">
+                                        <i class="fas fa-lock mr-2"></i>Unlock Full Address
+                                    </button>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="detail-label mb-3">Amenities</div>
+                        <div class="flex flex-wrap gap-2">
+                            ${property.amenities.map(amenity => `
+                                <span class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">${amenity}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="detail-label mb-2">Description</div>
+                        <div class="detail-value">${property.description}</div>
+                    </div>
+
+                    ${hasUnlockedAddress ? `
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <div class="detail-label mb-2">Contact Information</div>
+                            <div class="space-y-2">
+                                <div class="detail-value">Owner: ${property.ownerName}</div>
+                                <div class="detail-value">Phone: ${property.contact}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <button onclick="contactViaWhatsApp('${property.contact}', '${property.name}')" class="btn-primary flex-1">
+                                <i class="fab fa-whatsapp mr-2"></i>WhatsApp
                             </button>
-                        `;
-                        previewContainer.appendChild(div);
-                    };
-                    reader.readAsDataURL(file);
-                } else {
-                    showToast(`Invalid file: ${file.name}. Please upload images under 5MB.`, 'error');
-                }
-            });
+                            <button onclick="contactViaCall('${property.contact}')" class="btn-secondary flex-1">
+                                <i class="fas fa-phone mr-2"></i>Call Now
+                            </button>
+                        </div>
+                    ` : `
+                        <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
+                            <div class="flex items-center text-yellow-800">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                <span class="text-sm">Unlock full address and contact details for ₹149</span>
+                            </div>
+                        </div>
+                    `}
+                </div>
+            `;
+            
+            document.getElementById('propertyDetailsContent').innerHTML = content;
+            document.getElementById('propertyDetailsModal').classList.add('show');
         }
 
-        function removeImage(index) {
-            uploadedImages.splice(index, 1);
-            document.getElementById('imagePreviews').innerHTML = '';
+        function openRoommateDetails(roommateId) {
+            const roommate = roommateData[roommateId];
+            if (!roommate) return;
+
+            document.getElementById('roommateDetailsTitle').textContent = roommate.name;
             
-            // Rebuild previews
-            uploadedImages.forEach((file, i) => {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const div = document.createElement('div');
-                    div.className = 'relative';
-                    div.innerHTML = `
-                        <img src="${e.target.result}" alt="Property ${i + 1}" class="w-full h-24 object-cover rounded-lg">
-                        <button type="button" onclick="removeImage(${i})" 
-                                class="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs hover:bg-red-600">
-                            <i class="fas fa-times"></i>
+            const content = `
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <img src="${roommate.images[0]}" alt="${roommate.name}" class="w-24 h-24 object-cover rounded-full">
+                        <div>
+                            <h3 class="text-xl font-bold">${roommate.name}</h3>
+                            <p class="text-gray-600">${roommate.profession}</p>
+                            <p class="text-gray-500">Age: ${roommate.age}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <div class="detail-label">Budget</div>
+                            <div class="detail-value text-lg font-semibold text-blue-600">${roommate.budget}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Profession</div>
+                            <div class="detail-value">${roommate.profession}</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="detail-label mb-2">Preferred Location</div>
+                        <div class="relative">
+                            <div class="${hasUnlockedAddress ? '' : 'blur-address'}">${hasUnlockedAddress ? roommate.fullAddress : roommate.partialAddress}</div>
+                            ${!hasUnlockedAddress ? `
+                                <div class="unlock-overlay">
+                                    <button onclick="openPaymentModal()" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">
+                                        <i class="fas fa-lock mr-2"></i>Unlock Full Details
+                                    </button>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="detail-label mb-3">Preferences</div>
+                        <div class="flex flex-wrap gap-2">
+                            ${roommate.preferences.map(pref => `
+                                <span class="bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">${pref}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="detail-label mb-2">About</div>
+                        <div class="detail-value">${roommate.description}</div>
+                    </div>
+
+                    ${hasUnlockedAddress ? `
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <div class="detail-label mb-2">Contact Information</div>
+                            <div class="space-y-2">
+                                <div class="detail-value">Phone: ${roommate.contact}</div>
+                                <div class="detail-value">Email: ${roommate.email}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <button onclick="contactViaWhatsApp('${roommate.contact}', 'roommate connection')" class="btn-primary flex-1">
+                                <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                            </button>
+                            <button onclick="contactViaEmail('${roommate.email}', '${roommate.name}')" class="btn-secondary flex-1">
+                                <i class="fas fa-envelope mr-2"></i>Email
+                            </button>
+                        </div>
+                    ` : `
+                        <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
+                            <div class="flex items-center text-yellow-800">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                <span class="text-sm">Unlock contact details for ₹149</span>
+                            </div>
+                        </div>
+                    `}
+                </div>
+            `;
+            
+            document.getElementById('roommateDetailsContent').innerHTML = content;
+            document.getElementById('roommateDetailsModal').classList.add('show');
+        }
+
+        // Payment and Address Unlocking
+        function openPaymentModal() {
+            document.getElementById('paymentModal').classList.add('show');
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.remove('show');
+        }
+
+        function processPayment() {
+            // Simulate payment processing
+            const paymentModal = document.getElementById('paymentModal');
+            paymentModal.innerHTML = `
+                <div class="modal-content" style="max-width: 500px;">
+                    <div class="text-center py-8">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-check text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Payment Successful!</h3>
+                        <p class="text-gray-600 mb-6">Address and contact details have been unlocked</p>
+                        <button onclick="completeUnlock()" class="btn-primary">
+                            <i class="fas fa-eye mr-2"></i>View Full Details
                         </button>
-                    `;
-                    document.getElementById('imagePreviews').appendChild(div);
-                };
-                reader.readAsDataURL(file);
-            });
+                    </div>
+                </div>
+            `;
         }
 
-        // Event Listeners
-        document.addEventListener('DOMContentLoaded', function() {
-            // Load initial content
-            loadFeaturedProperties();
+        function completeUnlock() {
+            hasUnlockedAddress = true;
+            closePaymentModal();
             
-            // Property listing form
-            document.getElementById('listPropertyForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                if (uploadedImages.length === 0) {
-                    showToast('Please upload at least one image', 'error');
-                    return;
-                }
-                
-                const formData = new FormData(this);
-                const propertyData = Object.fromEntries(formData);
-                
-                // Simulate form submission
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<div class="loading-spinner mr-2"></div>Processing...';
-                submitBtn.disabled = true;
-                
-                setTimeout(() => {
-                    showToast('Property listed successfully! It will be reviewed and published within 24 hours.');
-                    this.reset();
-                    uploadedImages = [];
-                    document.getElementById('imagePreviews').innerHTML = '';
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }, 2000);
-            });
+            // Refresh the current modal with unlocked content
+            if (currentPropertyId) {
+                openPropertyDetails(currentPropertyId);
+            }
             
-            // Bed booking form
-            document.getElementById('bedBookingForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = new FormData(this);
-                const bookingData = Object.fromEntries(formData);
-                
-                // Simulate booking submission
-                const submitBtn = this.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<div class="loading-spinner mr-2"></div>Submitting...';
-                submitBtn.disabled = true;
-                
-                setTimeout(() => {
-                    showToast('Booking request submitted! You will be contacted soon.');
-                    this.reset();
-                    closeBedBookingModal();
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }, 1500);
-            });
+            // Check if roommate modal is open
+            if (document.getElementById('roommateDetailsModal').classList.contains('show')) {
+                openRoommateDetails('rahul-sharma');
+            }
+        }
+
+        // Contact Functions
+        function contactViaWhatsApp(phone, propertyName) {
+            const message = `Hi! I'm interested in ${propertyName}. Can we discuss the details?`;
+            const whatsappUrl = `https://wa.me/${phone.replace(/\s+/g, '')}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function contactViaCall(phone) {
+            window.location.href = `tel:${phone}`;
+        }
+
+        function contactViaEmail(email, name) {
+            const subject = `Interested in connecting as roommate`;
+            const body = `Hi ${name},\n\nI found your profile on BluechipProperty and I'm interested in connecting as a potential roommate.\n\nBest regards`;
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        // Modal Close Functions
+        function closePropertyDetailsModal() {
+            document.getElementById('propertyDetailsModal').classList.remove('show');
+        }
+
+        function closeRoommateDetailsModal() {
+            document.getElementById('roommateDetailsModal').classList.remove('show');
+        }
+
+        // Filter functions for rentals page
+        function toggleFurnishedFilter(element, status) {
+            // Remove selected class from all radio items
+            const radioItems = element.parentNode.querySelectorAll('.radio-item');
+            radioItems.forEach(item => item.classList.remove('selected'));
             
-            // Email sign in form
-            document.getElementById('emailSignInForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = new FormData(this);
-                const email = formData.get('email');
-                
-                showToast('Email sign in successful! Welcome back.');
+            // Add selected class to clicked item
+            element.classList.add('selected');
+        }
+
+        function toggleAmenityFilter(element, amenity) {
+            element.classList.toggle('selected');
+        }
+
+        // List property page functions
+        function selectFurnishedStatus(element, status) {
+            // Remove selected class from all radio items
+            const radioItems = element.parentNode.querySelectorAll('.radio-item');
+            radioItems.forEach(item => item.classList.remove('selected'));
+            
+            // Add selected class to clicked item
+            element.classList.add('selected');
+        }
+
+        function toggleAmenity(element, amenity) {
+            element.classList.toggle('selected');
+        }
+
+        function handleListProperty(event) {
+            event.preventDefault();
+            alert('Property listed successfully!\n\nYour property has been submitted for review and will be live within 24 hours.\n\nThank you for choosing BluechipProperty!');
+            
+            // Reset form
+            document.getElementById('listPropertyForm').reset();
+            
+            // Reset selected amenities and furnished status
+            const selectedItems = document.querySelectorAll('.selected');
+            selectedItems.forEach(item => item.classList.remove('selected'));
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const signInModal = document.getElementById('signInModal');
+            const forgotPasswordModal = document.getElementById('forgotPasswordModal');
+            const propertyDetailsModal = document.getElementById('propertyDetailsModal');
+            const roommateDetailsModal = document.getElementById('roommateDetailsModal');
+            const paymentModal = document.getElementById('paymentModal');
+            
+            if (event.target === signInModal) {
                 closeSignInModal();
-                updateSignInState(email.split('@')[0]);
-                this.reset();
-            });
-            
-            // Close modals when clicking outside
-            document.getElementById('propertyModal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeModal();
-                }
-            });
-            
-            document.getElementById('bedBookingModal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeBedBookingModal();
-                }
-            });
-            
-            document.getElementById('signInModal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeSignInModal();
-                }
-            });
-        });
+            }
+            if (event.target === forgotPasswordModal) {
+                closeForgotPasswordModal();
+            }
+            if (event.target === propertyDetailsModal) {
+                closePropertyDetailsModal();
+            }
+            if (event.target === roommateDetailsModal) {
+                closeRoommateDetailsModal();
+            }
+            if (event.target === paymentModal) {
+                closePaymentModal();
+            }
+        }
     </script>
 </body>
 </html>
