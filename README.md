@@ -505,7 +505,7 @@
 
 </head>
 
-<body class="bg-gray-50">
+<body> class="bg-gray-50"
     <!-- Header -->
     <header class="bg-white shadow-lg sticky top-0 z-40 backdrop-blur-md bg-white/95">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
